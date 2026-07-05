@@ -15,7 +15,7 @@
 **Files:**
 - Modify: `website/src/css/custom.css`
 
-- [ ] **Step 1: Write implementation**
+- [x] **Step 1: Write implementation**
 Update `website/src/css/custom.css` to import Google Fonts and define the new design system tokens and styling overrides:
 
 ```css
@@ -374,7 +374,7 @@ Update `website/src/css/custom.css` to import Google Fonts and define the new de
 }
 ```
 
-- [ ] **Step 2: Verify compilation**
+- [x] **Step 2: Verify compilation**
 Run a command to check if Docusaurus styling build passes:
 Run: `npm --prefix website run build` inside workspace.
 Expected: Build passes with no CSS compilation syntax errors.
@@ -386,7 +386,7 @@ Expected: Build passes with no CSS compilation syntax errors.
 **Files:**
 - Modify: `website/docusaurus.config.ts`
 
-- [ ] **Step 1: Write config updates**
+- [x] **Step 1: Write config updates**
 Replace the `themeConfig` section in `website/docusaurus.config.ts` to update the footer links and styling options:
 
 ```typescript
@@ -446,7 +446,7 @@ Replace the `themeConfig` section in `website/docusaurus.config.ts` to update th
   } satisfies Preset.ThemeConfig,
 ```
 
-- [ ] **Step 2: Verify config parses**
+- [x] **Step 2: Verify config parses**
 Run: `npm --prefix website run build`
 Expected: Build finishes with no configuration schema errors.
 
@@ -457,7 +457,7 @@ Expected: Build finishes with no configuration schema errors.
 **Files:**
 - Modify: `website/src/pages/index.tsx`
 
-- [ ] **Step 1: Refactor index.tsx**
+- [x] **Step 1: Refactor index.tsx**
 Rewrite `website/src/pages/index.tsx` to add a `useState` tab manager for the mockup terminal and construct the new two-column layout:
 
 ```typescript
@@ -574,7 +574,7 @@ export default function Home(): JSX.Element {
 }
 ```
 
-- [ ] **Step 2: Verify React build**
+- [x] **Step 2: Verify React build**
 Run: `npm --prefix website run build`
 Expected: Successfully generates the production HTML pages with no syntax or React errors.
 
@@ -585,7 +585,7 @@ Expected: Successfully generates the production HTML pages with no syntax or Rea
 **Files:**
 - Modify: `website/src/components/HomepageFeatures/index.tsx`
 
-- [ ] **Step 1: Update HomepageFeatures component**
+- [x] **Step 1: Update HomepageFeatures component**
 Replace the static features array in `website/src/components/HomepageFeatures/index.tsx` to align with the new pillars and premium descriptions:
 
 ```typescript
@@ -656,7 +656,7 @@ export default function HomepageFeatures(): JSX.Element {
 }
 ```
 
-- [ ] **Step 2: Verify component build**
+- [x] **Step 2: Verify component build**
 Run: `npm --prefix website run build`
 Expected: Build passes.
 
@@ -664,12 +664,12 @@ Expected: Build passes.
 
 ### Task 5: Final Production Build and Verification
 
-- [ ] **Step 1: Production compile**
+- [x] **Step 1: Production compile**
 Compile the entire website project:
 Run: `npm --prefix website run build`
 Expected: Finished build folder `build/` is generated, logs output: `Success! Generated static files in "build"`.
 
-- [ ] **Step 2: Commit all changes**
+- [x] **Step 2: Commit all changes**
 Commit all changes to git:
 ```bash
 git add website/src/css/custom.css website/docusaurus.config.ts website/src/pages/index.tsx website/src/components/HomepageFeatures/index.tsx

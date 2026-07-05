@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 :root {
   --ifm-color-primary: #3776ab;
   --ifm-color-primary-dark: #2f6592;
@@ -8,44 +10,60 @@
   --ifm-color-primary-lightest: #85b4df;
   
   --ifm-background-color: #ffffff;
-  --ifm-background-surface-color: #f6f6f6;
+  --ifm-background-surface-color: #f8fafc;
   
   --docusaurus-highlighted-code-line-bg: rgba(55, 118, 171, 0.1);
-  --ifm-font-family-base: 'Source Sans Pro', Arial, sans-serif;
-  --ifm-heading-color: #333333;
-  --ifm-font-color-base: #333333;
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --ifm-heading-color: #1e293b;
+  --ifm-font-color-base: #334155;
 
   /* Python specific colors */
   --py-yellow: #ffd43b;
-  --py-yellow-dark: #ffe873;
+  --py-yellow-hover: #ffe066;
   --py-blue: #3776ab;
-  --py-dark-blue: #212936;
-  --py-grey: #646464;
+  --py-blue-hover: #2f6592;
+  --py-dark-blue: #1e2530;
+  --py-console-bg: #111827;
+  --py-grey: #64748b;
+  --py-border: #e2e8f0;
 }
 
 /* Navbar styling like Python.org */
 .navbar {
   background-color: var(--py-dark-blue);
   color: white;
-  border-bottom: 4px solid var(--py-yellow);
+  border-bottom: 3px solid var(--py-yellow);
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 }
 
 .navbar__title {
   color: white;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.025em;
 }
 
 .navbar__item {
-  color: #c8d6e5;
-  font-weight: 600;
+  color: #cbd5e1;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s, border-bottom 0.2s;
+  padding: 0.25rem 0.75rem;
 }
 
 .navbar__item:hover, .navbar__item--active {
   color: white;
+  text-decoration: none;
 }
 
-/* Hero Section Styles like Python.org */
+.navbar__item--active {
+  color: var(--py-yellow) !important;
+}
+
+/* Hero Section Styles */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 5rem 0;
   text-align: left;
   position: relative;
   overflow: hidden;
@@ -60,131 +78,276 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  gap: 2rem;
+  gap: 4rem;
+}
+
+@media (max-width: 996px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
 }
 
 .heroText {
-  flex: 1;
+  flex: 1.2;
 }
 
 .heroTitle {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: 800;
   color: white;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .heroSubtitle {
-  font-size: 1.2rem;
-  color: #c8d6e5;
-  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  margin-bottom: 2.5rem;
   font-weight: 400;
+  line-height: 1.6;
 }
 
+/* Tabbed Console Window Styles */
 .heroCode {
   flex: 1;
-  background: #1a232d;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #3776ab;
-  color: #c8d6e5;
-  font-family: monospace;
+  background: var(--py-console-bg);
+  border-radius: 12px;
+  border: 1px solid #374151;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+  overflow: hidden;
+  width: 100%;
+  max-width: 550px;
 }
 
-.heroCode h3 {
+.consoleHeader {
+  background: #1f2937;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #374151;
+}
+
+.consoleButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.consoleBtn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.btnRed { background: #ef4444; }
+.btnYellow { background: #eab308; }
+.btnGreen { background: #22c55e; }
+
+.consoleTabs {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.consoleTab {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.consoleTab:hover {
+  color: white;
+  background: #374151;
+}
+
+.consoleTabActive {
   color: var(--py-yellow);
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  font-family: 'Source Sans Pro', Arial, sans-serif;
+  background: #111827;
+  font-weight: 600;
 }
 
-.heroCode pre {
+.consoleBody {
+  padding: 1.5rem;
+  min-height: 250px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+  overflow-x: auto;
+}
+
+.consoleBody pre {
   background: transparent;
   padding: 0;
   margin: 0;
   border: none;
   box-shadow: none;
+  color: #e5e7eb;
 }
 
-.heroCode code {
-  color: white;
+.consoleBody .comment {
+  color: #6b7280;
+  font-style: italic;
 }
 
-.heroCode .comment {
-  color: #646464;
-}
-
-.heroCode .keyword {
+.consoleBody .keyword {
   color: var(--py-yellow);
+  font-weight: 600;
+}
+
+.consoleBody .builtin {
+  color: #60a5fa;
+}
+
+.consoleBody .string {
+  color: #34d399;
+}
+
+.consoleBody .decorator {
+  color: #f472b6;
 }
 
 .buttons {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 1rem;
+  gap: 1.25rem;
+}
+
+@media (max-width: 996px) {
+  .buttons {
+    justify-content: center;
+  }
 }
 
 .button--py-yellow {
   background: var(--py-yellow);
-  color: #333;
+  color: #0f172a;
   border: none;
-  font-weight: bold;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  transition: background 0.2s;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .button--py-yellow:hover {
-  background: #ffcc00;
-  color: #333;
+  background: var(--py-yellow-hover);
+  color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
   text-decoration: none;
 }
 
 .button--py-blue {
   background: var(--py-blue);
   color: white;
-  border: none;
-  font-weight: bold;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  transition: background 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .button--py-blue:hover {
-  background: #2f6592;
+  background: var(--py-blue-hover);
   color: white;
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
-/* Feature grid */
+/* Feature grid overrides */
 .featuresGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .featureCard {
   background: white;
-  padding: 2rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-top: 4px solid var(--py-blue);
+  padding: 2.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  border: 1px solid var(--py-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--py-blue);
+  transition: background 0.3s;
+}
+
+.featureCard:nth-child(even)::before {
+  background: var(--py-yellow);
+}
+
+.featureCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  border-color: #cbd5e1;
 }
 
 .featureCard h3 {
-  color: var(--py-blue);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
 }
 
 .featureCard p {
   color: var(--py-grey);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Footer styling */
 .footer {
   background-color: var(--py-dark-blue);
+  color: #94a3b8;
+  border-top: 1px solid #334155;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer__title {
   color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer__link-item {
+  color: #cbd5e1;
+  transition: color 0.2s;
+  font-size: 0.95rem;
+}
+
+.footer__link-item:hover {
+  color: var(--py-yellow);
+  text-decoration: none;
 }

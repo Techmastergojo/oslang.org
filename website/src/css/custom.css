@@ -216,6 +216,21 @@
   color: #f472b6;
 }
 
+.consoleBody .number {
+  color: #fb923c;
+}
+
+.consoleCursor {
+  border-left: 2px dashed var(--py-yellow);
+  margin-left: 1px;
+  animation: console-blink 0.8s step-end infinite;
+}
+
+@keyframes console-blink {
+  from, to { border-color: transparent }
+  50% { border-color: var(--py-yellow); }
+}
+
 .buttons {
   display: flex;
   align-items: center;

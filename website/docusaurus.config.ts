@@ -43,9 +43,9 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Documentation' },
-        { to: '/docs/getting-started/installation', label: 'Downloads', position: 'left' },
-        { to: '/docs/intro', label: 'Community', position: 'left' },
+        { to: '/docs/intro', label: 'Documentation', position: 'left' },
+        { to: '/docs/intro#installation-setup', label: 'Downloads', position: 'left' },
+        { to: '/docs/intro#what-is-os-lang', label: 'Community', position: 'left' },
         { href: 'https://github.com/Techmastergojo/os-lang', label: 'GitHub', position: 'right' },
       ],
     },
@@ -55,24 +55,24 @@ const config: Config = {
         {
           title: 'Documentation',
           items: [
-            { label: 'Introduction', to: '/docs/intro' },
-            { label: 'Installation', to: '/docs/getting-started/installation' },
-            { label: 'Environment Setup', to: '/docs/getting-started/environment-setup' },
+            { label: 'Introduction', to: '/docs/intro#what-is-os-lang' },
+            { label: 'Installation', to: '/docs/intro#installation-setup' },
+            { label: 'Environment Setup', to: '/docs/intro#environment-setup-qemu' },
           ],
         },
         {
           title: 'Resources',
           items: [
-            { label: 'Language Guide', to: '/docs/language-guide/memory-safety' },
-            { label: 'Hardware Alignment', to: '/docs/language-guide/hardware-alignment' },
-            { label: 'Pattern Matching', to: '/docs/language-guide/pattern-matching' },
+            { label: 'Memory Safety', to: '/docs/intro#memory-safety-unsafe' },
+            { label: 'Hardware Alignment', to: '/docs/intro#hardware-alignment-packed' },
+            { label: 'Pattern Matching', to: '/docs/intro#pattern-matching-match' },
           ],
         },
         {
           title: 'Community',
           items: [
             { label: 'GitHub Compiler', href: 'https://github.com/Techmastergojo/os-lang' },
-            { label: 'Examples', to: '/docs/examples/ascii-keyboard' },
+            { label: 'ASCII Keyboard Driver', to: '/docs/intro#creating-an-ascii-keyboard-driver' },
           ],
         },
       ],

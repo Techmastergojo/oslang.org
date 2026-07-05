@@ -1,43 +1,41 @@
+import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Get Started',
+    title: 'Hardware Native',
     description: (
       <>
-        Whether you're new to systems programming or an experienced kernel developer, it's easy to learn and use OS-Lang.
-        <br/><br/>
-        <a href="/docs/intro" style={{fontWeight: 'bold', color: 'var(--py-blue)'}}>Start with our Beginner’s Guide</a>
+        Define custom <code>@packed</code> structs that line up perfectly with hardware descriptor tables 
+        (GDT, IDT) without compiler alignment padding or manual padding offsets.
       </>
     ),
   },
   {
-    title: 'Download',
+    title: 'Memory Safety Boundaries',
     description: (
       <>
-        OS-Lang compiler and tools are available for download for all platforms!
-        <br/><br/>
-        Latest: <a href="/docs/getting-started/installation" style={{fontWeight: 'bold', color: 'var(--py-blue)'}}>OS-Lang 1.0.0</a>
+        Write memory-safe logic for your operating system logic while isolating raw memory maps, DMA, 
+        and hardware pointer manipulation within explicit, audited <code>@unsafe</code> block boundaries.
       </>
     ),
   },
   {
-    title: 'Docs',
+    title: 'Built-in Intrinsics',
     description: (
       <>
-        Documentation for OS-Lang's standard library, along with tutorials and guides, are available online.
-        <br/><br/>
-        <a href="/docs/intro" style={{fontWeight: 'bold', color: 'var(--py-blue)'}}>os-lang.dev/docs</a>
+        Access processor operations (like <code>cli()</code>, <code>sti()</code>, <code>inb()</code>, and <code>outb()</code>) 
+        as type-safe, built-in intrinsics directly in your code without inline assembly.
       </>
     ),
   },
   {
-    title: 'Memory Safety',
+    title: 'Interrupt Handlers',
     description: (
       <>
-        Say goodbye to complex linker scripts and inline assembly. Write pure, memory-safe code 
-        with <code>@unsafe</code> boundaries and zero-overhead abstractions.
+        Decorate functions with <code>@interrupt</code> to automatically compile them under the appropriate CPU 
+        calling convention, managing registers and stack frames safely.
       </>
     ),
   },
@@ -54,8 +52,8 @@ function Feature({title, description}) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className={styles.features} style={{padding: '4rem 0'}}>
-      <div className="container" style={{maxWidth: '1200px', margin: '0 auto'}}>
+    <section className={styles.features} style={{padding: '5rem 0', backgroundColor: 'var(--bg-light)'}}>
+      <div className="container" style={{maxWidth: '1200px', margin: '0 auto', padding: '0 2rem'}}>
         <div className="featuresGrid">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
